@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Taller1_Mauricio_Mora.Data;
 
@@ -10,9 +11,11 @@ using Taller1_Mauricio_Mora.Data;
 namespace Taller1_Mauricio_Mora.Migrations
 {
     [DbContext(typeof(Taller1_Mauricio_MoraContext))]
-    partial class Taller1_Mauricio_MoraContextModelSnapshot : ModelSnapshot
+    [Migration("20241024135242_MigracionJugador")]
+    partial class MigracionJugador
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -89,6 +92,10 @@ namespace Taller1_Mauricio_Mora.Migrations
                     b.Property<int>("Edad")
                         .HasColumnType("int");
 
+                    b.Property<string>("Equipo")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<int>("IdEquipo")
                         .HasColumnType("int");
 
@@ -104,20 +111,7 @@ namespace Taller1_Mauricio_Mora.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("IdEquipo");
-
                     b.ToTable("Jugador");
-                });
-
-            modelBuilder.Entity("Taller1_Mauricio_Mora.Models.Jugador", b =>
-                {
-                    b.HasOne("Taller1_Mauricio_Mora.Models.Equipo", "Equipo")
-                        .WithMany()
-                        .HasForeignKey("IdEquipo")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Equipo");
                 });
 #pragma warning restore 612, 618
         }

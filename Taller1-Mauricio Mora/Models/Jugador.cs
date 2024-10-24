@@ -14,7 +14,7 @@ namespace Taller1_Mauricio_Mora.Models
         [Range(0, 150)]
         public int Edad { get; set; }
 
-        public string Equipo { get; set; }
+        public Equipo? Equipo { get; set; }
         [ForeignKey("Equipo")]
         public int IdEquipo { get; set; }
     }
