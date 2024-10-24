@@ -1,41 +1,45 @@
 ﻿@model Taller1_Mauricio_Mora.Models.Estadio
 
 @{
-    ViewData["Title"] = "Create";
+    ViewData["Title"] = "Crear Estadio";
 }
 
-<h1>Create</h1>
+<h1 class="text-center mt-4">Crear Estadio</h1>
 
-<h4>Estadio</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
+<div class="card mx-auto mt-4 shadow-sm" style="max-width: 600px;">
+    <div class="card-body">
+        <h4 class="card-title text-center">Detalles del Estadio</h4>
+        <hr />
         <form asp-action="Create">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="Direccion" class="control-label"></label>
-                <input asp-for="Direccion" class="form-control" />
+            <div asp-validation-summary="ModelOnly" class="alert alert-danger" role="alert"></div>
+            
+            <div class="form-group mb-3">
+                <label asp-for="Direccion" class="form-label"></label>
+                <input asp-for="Direccion" class="form-control" placeholder="Dirección del estadio" />
                 <span asp-validation-for="Direccion" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="Ciudad" class="control-label"></label>
-                <input asp-for="Ciudad" class="form-control" />
+
+            <div class="form-group mb-3">
+                <label asp-for="Ciudad" class="form-label"></label>
+                <input asp-for="Ciudad" class="form-control" placeholder="Ciudad del estadio" />
                 <span asp-validation-for="Ciudad" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="Capacidad" class="control-label"></label>
-                <input asp-for="Capacidad" class="form-control" />
+
+            <div class="form-group mb-4">
+                <label asp-for="Capacidad" class="form-label"></label>
+                <input asp-for="Capacidad" class="form-control" placeholder="Capacidad del estadio" />
                 <span asp-validation-for="Capacidad" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+
+            <div class="d-grid">
+                <input type="submit" value="Crear Estadio" class="btn btn-success btn-lg" />
             </div>
         </form>
     </div>
 </div>
 
-<div>
-    <a asp-action="Index">Back to List</a>
+<div class="text-center mt-4">
+    <a asp-action="Index" class="btn btn-secondary">Volver a la lista</a>
 </div>
 
 @section Scripts {
