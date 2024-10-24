@@ -20,7 +20,7 @@ namespace Taller1_Mauricio_Mora.Controllers
         }
 
         // GET: Estadios
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index()//hola
         {
             return View(await _context.Estadio.ToListAsync());
         }
