@@ -19,13 +19,11 @@ namespace Taller1_Mauricio_Mora.Controllers
             _context = context;
         }
 
-        // GET: Jugadors
         public async Task<IActionResult> Index()
         {
             return View(await _context.Jugador.ToListAsync());
         }
 
-        // GET: Jugadors/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -43,15 +41,12 @@ namespace Taller1_Mauricio_Mora.Controllers
             return View(jugador);
         }
 
-        // GET: Jugadors/Create
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: Jugadors/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,Nombre,Posicion,Edad,Equipo,IdEquipo")] Jugador jugador)
